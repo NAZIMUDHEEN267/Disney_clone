@@ -1,0 +1,36 @@
+{
+	"container": [
+		{
+			"name": "aquaman",
+			"img": "aquaman.jpeg"
+		},
+		{
+			"name": "godzilla_kong",
+			"img": "godzilla_kong.jpeg"
+		},
+		{
+			"name": "inception",
+			"img": "inception.jpeg"
+		},
+		{
+			"name": "lord_of_the_rings",
+			"img": "lord_of_the_rings.jpeg"
+		},
+		{
+			"name": "predator",
+			"img": "predator.jpeg"
+		},
+		{
+			"name": "star_wars",
+			"img": "star_wars.jpeg"
+		},
+		{
+			"name": "suiside_squad",
+			"img": "suiside_squad.jpeg"
+		},
+		{
+			"name": "tangled",
+			"img": "tangled.jpeg"
+		}
+	]
+}

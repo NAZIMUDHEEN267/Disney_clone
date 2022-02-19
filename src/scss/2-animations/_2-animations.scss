@@ -1,0 +1,12 @@
+
+// all animation contents compressed here
+@keyframes text {
+	@for $i from 10 through 100 {
+		@if $i % 10 == 0 {
+			#{$i + 0%} {
+				$mod: $i % 9;
+				color: hsl($mod * 36, 100%, 50%);
+			}
+		}
+	}
+}

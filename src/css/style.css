@@ -1,0 +1,58 @@
+@keyframes text {
+  10% {
+    color: #ff9900;
+  }
+  20% {
+    color: #ccff00;
+  }
+  30% {
+    color: #33ff00;
+  }
+  40% {
+    color: #00ff66;
+  }
+  50% {
+    color: aqua;
+  }
+  60% {
+    color: #0066ff;
+  }
+  70% {
+    color: #3300ff;
+  }
+  80% {
+    color: #cc00ff;
+  }
+  90% {
+    color: red;
+  }
+  100% {
+    color: #ff9900;
+  }
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: "Lato", sans-serif;
+  margin: 0;
+}
+body .code {
+  max-width: 400px;
+  text-align: center;
+  padding: 0.5rem;
+}
+body .code h1 {
+  text-transform: capitalize;
+  font-weight: 500;
+}
+body .code h1 .fas {
+  animation: text 3s 0.3s infinite;
+  margin-left: 0.5rem;
+}
+body .code img {
+  width: 100%;
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,52 @@
+{
+	"name": "advanced-frontend",
+	"version": "1.0.1",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"pug": "pug -w ./src/pug/pages/*.pug -o ./build/html/",
+		"eslint": "npm init @eslint/config",
+		"errors": "npx eslint ./src/javascript",
+		"grunt": "grunt watch",
+		"babel": "./node_modules/.bin/babel src/javascript --out-dir build/js",
+		"watch": "nodemon"
+	},
+	"nodemonConfig": {
+		"exec": "npm-run-all babel errors",
+		"watch": [
+			"src/javascript"
+		]
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@babel/cli": "^7.17.3",
+		"@babel/core": "^7.17.4",
+		"@babel/preset-env": "^7.16.11",
+		"babel-cli": "^6.26.0",
+		"grunt": "^1.4.1",
+		"grunt-cli": "^1.4.3",
+		"grunt-contrib-concat": "^2.0.0",
+		"grunt-contrib-copy": "^1.0.0",
+		"grunt-contrib-cssmin": "^4.0.0",
+		"grunt-contrib-imagemin": "^4.0.0",
+		"grunt-contrib-sass": "^2.0.0",
+		"grunt-contrib-watch": "^1.1.0",
+		"imagemin": "^8.0.1",
+		"imagemin-giflossy": "^5.1.10",
+		"imagemin-mozjpeg": "^9.0.0",
+		"imagemin-pngquant": "^9.0.2",
+		"npm-run-all": "^4.1.5",
+		"pug-cli": "^1.0.0-alpha6",
+		"sass": "^1.49.7"
+	},
+	"devDependencies": {
+		"eslint": "^8.9.0",
+		"eslint-config-airbnb": "^19.0.4",
+		"eslint-config-airbnb-base": "^15.0.0",
+		"eslint-plugin-import": "^2.25.4",
+		"eslint-plugin-jsx-a11y": "^6.5.1",
+		"eslint-plugin-react": "^7.28.0",
+		"eslint-plugin-react-hooks": "^4.3.0"
+	}
+}

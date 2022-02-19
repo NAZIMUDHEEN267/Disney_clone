@@ -1,0 +1,30 @@
+@use "../2-animations/2-animations" as animation;
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	font-family: 'Lato', sans-serif;
+	margin: 0;
+
+	.code {
+		max-width: 400px;
+		text-align: center;
+		padding: calc(1rem / 2);
+
+		h1 {
+			text-transform: capitalize;
+			font-weight: 500;
+
+			.fas {
+				animation: text 3s .3s infinite;
+				margin-left: .5rem;
+			}
+		}
+
+		img {
+			width: 100%;
+		}
+	}
+}

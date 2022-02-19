@@ -1,0 +1,24 @@
+
+//- extends layout page 
+extends ../layout.pug 
+
+
+block style 
+	link(rel="stylesheet", href=`../css/style.min.css`)
+
+block title 
+	title Sample
+
+block font 
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
+block content 
+	.code 
+		h1 let's goo 
+			i.fas.fa-code 
+		<iframe src="https://giphy.com/embed/13GIgrGdslD9oQ" width="480" height="288" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+
+block script 
+	script(src="../js/index.js" type="text/javascript") 
