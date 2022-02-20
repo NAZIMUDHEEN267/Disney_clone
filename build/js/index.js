@@ -1,0 +1,1 @@
+['like', 'thank'].map(l => l);
