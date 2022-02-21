@@ -2,20 +2,17 @@
 	"name": "advanced-frontend",
 	"version": "1.0.1",
 	"description": "",
-	"main": "index.js",
 	"scripts": {
-		"pug": "pug -w ./src/pug/index.pug -o ./build/html/index.html -P ",
+		"pug": "pug -w ./src/pug -o ./build/html -P",
 		"eslint": "npm init @eslint/config",
-		"errors": "npx eslint ./src/javascript",
-		"grunt": "grunt watch",
+		"errors": "npx eslint ./src/rmDir.js",
 		"babel": "./node_modules/.bin/babel src/javascript --out-dir build/js",
-		"watch": "nodemon"
+		"watch": "nodemon",
+		"grunt": "grunt watch"
 	},
-	"nodemonConfig": {
+	"nodemonConfig":{
 		"exec": "npm-run-all babel errors",
-		"watch": [
-			"src/javascript"
-		]
+		"watch": "src/*"
 	},
 	"author": "",
 	"license": "ISC",

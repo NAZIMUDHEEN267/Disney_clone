@@ -1,35 +1,77 @@
 
+
+//- generating links, when user hover a specific link after this list of links displayed
+-const tvLinks = ["other shows", "hotstar specials", "quix", "star jalswa", "star plus", "star vijay", "asianet", "star bharath", "more..."];
+-const movieLinks = ["hindi", "malayalam", "kannada", "telungu", "tamil", "urdu", "english"];
+-const sports = ["cricket", "football", "chess", "hockey", "badminton", "tennis", "wrestling", "running", "karate"];
+
+//- mixins for generating links
+
+mixin list(links, className)
+	div(class=`${className}-list`)
+		.blank 
+		each link in links
+			li 
+				a(href="#")= link  
+
+
 //- header container
 header.header 
-	nav.nav 
 
-		//- hamburger menu
-		.nav__menu 	
-			i.fas.fa-bars
+	nav.nav.flex 
 		
 		//- navigation links right
-		.nav__right
-			ul
-				li
+		.nav__left.flex
+			//- hamburger menu
+			.nav__menu 	
+				i.fas.fa-bars
+
+				.list 
+					//- this blank using for invisible height for list 
+					.blank
+					
+					li.list__item-1 
+						a(href="#") 
+							i.fa-solid.fa-chalkboard-user
+							span channels 
+					li.list__item-2 
+						a(href="#") 
+							i.fa-solid.fa-language
+							span language
+					li.list__item-3
+						a(href="#") 
+							i.fa-solid.fa-masks-theater
+							span genres 
+
+			//- links
+			ul.nav__links.flex#js-nav-links
+				li.nav__img
 					a(href="#")
-						img(src="../Assets/disney.png", alt="")
-				li
+						img(src="../Assets/disney.png", alt="disney.png")
+				li.nav__link_color
 					a(href="#") tv
-				li
+				li.nav__link_color
 					a(href="#") movies
-				li
+				li.nav__link_color
 					a(href="#") sports
-				li
+				li.nav__link_color
 					a(href="#") disney<sup>+</sup>
-				li
+				li.kids
 					a(href="#") kids
-		
+
+
 		//- navigation links left 
-		.nav__left
-			ul
-				li
-					input(type="search", name="search" placeholder="search")
-				li
-					a(href="") 
-				li
-					a(href="") 
+		.user.flex
+				.user__search
+					input(type="text", name="search" placeholder="search")
+				.user__subscribe
+					a(href="" class="nav__left-cta nav__left-cta_bg") SUBSCRIBE
+				.user__login
+					a(href="") LOGIN
+	
+
++list(tvLinks, "tv")
+
++list(movieLinks, "movies")
+
++list(sports, "sports")

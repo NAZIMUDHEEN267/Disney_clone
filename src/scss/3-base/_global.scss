@@ -1,30 +1,32 @@
-@use "../2-animations/2-animations" as animation;
+@use "../1-helpers/1-helpers" as help;
+
+// all elements
+*,
+*::after,
+*::before {
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 100%;
+}
 
 body {
+	background: help.$bg-1;
+	font-family: 'Roboto', sans-serif;
+}
+
+a {
+	text-decoration: none;
+	color: help.$text-color-1;
+	font-weight: help.$f-w-1;
+}
+
+li {
+	list-style: none;
+}
+
+.flex {
 	display: flex;
-	align-items: center;
-	justify-content: center;
-	min-height: 100vh;
-	font-family: 'Lato', sans-serif;
-	margin: 0;
-
-	.code {
-		max-width: 400px;
-		text-align: center;
-		padding: calc(1rem / 2);
-
-		h1 {
-			text-transform: capitalize;
-			font-weight: 500;
-
-			.fas {
-				animation: text 3s .3s infinite;
-				margin-left: .5rem;
-			}
-		}
-
-		img {
-			width: 100%;
-		}
-	}
 }

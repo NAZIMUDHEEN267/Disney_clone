@@ -5,13 +5,16 @@ $bg-2: #121926;
 $bg-3: #334366;
 
 // text-colors 
-$text-color1: #b8b5ad;
-$text-color2: #e0ded7;
+$text-color-1: #b8b5ad;
+$text-color-2: #e0ded7;
+$link: darken($bg-3, 15);
+$yellow: rgb(219, 170, 6);
+$blue: rgb(11, 130, 177);
 
 // font-weights
-$f-w1: normal;
-$f-w2: 600;
-$f-w3: 900;
+$f-w-1: 400;
+$f-w-2: 600;
+$f-w-3: 900;
 
 
 

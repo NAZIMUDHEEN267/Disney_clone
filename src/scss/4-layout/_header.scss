@@ -1,0 +1,230 @@
+@use "../1-helpers/1-helpers" as help;
+@use "../2-animations/2-animations" as anime;
+
+// ============== header
+
+.header {
+	padding: 0 2rem;
+	width: 100%;
+	height: help.convertor(80);
+	background: help.$bg-2;
+	font-size: 1.1rem;
+
+	.nav {
+		position: relative;
+		height: 100%;
+		justify-content: space-between;
+
+		> * {
+			flex-basis: 50%;
+			align-items: center;
+		}
+
+		&__left {
+			.nav__menu {
+				position: relative;
+				padding: 0.8rem;
+				align-self: center;
+				color: help.$text-color-1;
+				cursor: pointer;
+
+				i {
+					font-weight: help.$f-w-3;
+				}
+
+				&:hover .list {
+					@for $num from 1 to 4 {
+						.list__item-#{$num} {
+							transform-origin: top center;
+							animation: menu-list
+								100ms
+								($num * 80ms)
+								ease-in-out
+								forwards;
+						}
+					}
+				}
+
+				.list {
+					position: absolute;
+					bottom: -8.9rem;
+					visibility: hidden;
+
+					.blank {
+						height: 2rem;
+						background-color: transparent;
+						visibility: visible !important;
+					}
+
+					li {
+						background-color: help.$link;
+						a {
+							display: block;
+							padding: 0.8rem 1rem;
+							color: help.$text-color-1;
+
+							i {
+								color: lighten($color: #000000, $amount: 50);
+							}
+
+							span {
+								font-size: 1rem;
+							}
+						}
+
+						&:hover span {
+							color: help.$text-color-2;
+							font-weight: help.$f-w-1;
+						}
+
+						&:hover i {
+							color: help.$text-color-2;
+						}
+
+						&:hover {
+							background: help.$bg-1;
+						}
+					}
+
+					i,
+					span {
+						display: inline;
+					}
+
+					i {
+						margin-right: 1rem;
+					}
+				}
+			}
+
+			.nav__links {
+				padding: 0.4rem 0;
+				margin-right: auto;
+				align-items: center;
+
+				.nav__img img {
+					width: help.convertor(80);
+					height: 50%;
+				}
+
+				:nth-child(2) {
+					text-transform: uppercase;
+				}
+
+				li {
+					padding: 1.4rem;
+					text-transform: capitalize;
+					font-weight: help.$f-w-3;
+					transition: all ease-in-out 0.3s 0.3s;
+				}
+
+				.nav__link_color {
+					& :hover {
+						color: help.$text-color-2;
+					}
+				}
+
+				.kids a {
+					color: help.$yellow;
+					font-weight: bolder;
+					letter-spacing: 2px;
+				}
+			}
+		}
+	}
+
+	// left navigation side
+	.user {
+		justify-content: right;
+
+		&__search {
+			flex-basis: 60%;
+
+			input {
+				display: block;
+				width: 50%;
+				margin-left: auto;
+				font-size: 1rem;
+				color: help.$text-color-1;
+				background: transparent;
+				border: none;
+				border-bottom: 1px solid help.$text-color-1;
+				outline: none;
+
+				& ::after {
+					content: "asd";
+					color: white;
+				}
+			}
+
+			::placeholder {
+				margin-bottom: 0.8rem;
+				font-size: 1rem;
+				text-transform: capitalize;
+				color: help.$text-color-1;
+			}
+		}
+
+		&__subscribe {
+			margin: 0 1rem;
+			padding: 0.2rem 0.8rem;
+			background-color: help.$blue;
+			border-radius: help.convertor(3);
+
+			a {
+				font-size: 0.8rem;
+				font-weight: help.$f-w-3;
+			}
+		}
+
+		&__login a {
+			font-size: 0.9rem;
+			font-weight: help.$f-w-2;
+			letter-spacing: 0.3px;
+		}
+	}
+}
+
+// placeholder for list
+%list {
+	position: absolute;
+	width: fit-content;
+	padding: 0.8rem;
+	top: 3rem;
+	z-index: 4;
+	visibility: hidden;
+
+	li {
+		background: help.$link;
+		padding:.8rem 1rem;
+		text-align: center;
+
+		&:hover {
+			background: help.$bg-1;
+		}
+
+		a {
+			text-transform: capitalize;
+		}
+	}
+}
+
+.tv-list {
+	@extend %list;
+	left: 14%;
+}
+
+.movies-list {
+	@extend %list;
+	left: 20%;
+}
+
+.sports-list {
+	@extend %list;
+	left: 28%;
+}
+
+// Animation effect add in javascript
+.animation-nav {
+	animation: nav-list ease-in 300ms 300ms;
+}

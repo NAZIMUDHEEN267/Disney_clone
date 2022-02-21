@@ -1,12 +1,27 @@
-
 // all animation contents compressed here
-@keyframes text {
-	@for $i from 10 through 100 {
-		@if $i % 10 == 0 {
-			#{$i + 0%} {
-				$mod: $i % 9;
-				color: hsl($mod * 36, 100%, 50%);
-			}
-		}
+@keyframes menu-list {
+	0% {
+		transform: rotateX(-90deg);
+		opacity: 0;
+	}
+	50% {
+		transform: rotateX(-20deg);
+	}
+	100% {
+		transform: rotateX(0deg);
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+@keyframes nav-list {
+	from{
+		transform: translateY(40px);
+		opacity: .2;
+	}
+	to{
+		transform: translateY(0px);
+		opacity: 1;
+		visibility: visible;
 	}
 }
