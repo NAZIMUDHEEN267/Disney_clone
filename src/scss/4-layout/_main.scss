@@ -1,0 +1,98 @@
+@use "../1-helpers/1-helpers" as help;
+
+// ================ main
+main {
+	padding-top: help.convertor(90);
+	background: linear-gradient(to top, help.$bg-1 30%, help.$bg-2);
+
+	.carousel {
+		overflow: auto hidden;
+		transform-style: preserve-3d;
+		padding: 0 2rem 2rem;
+
+		// hide scroll-bar
+		&::-webkit-scrollbar {
+			display: none;
+		}
+		-ms-overflow-style: none; /* IE and Edge */
+		scrollbar-width: none;
+
+		:first-child {
+			margin: 0 !important;
+		}
+
+		&__item {
+			min-width: 85%;
+			height: 63vh;
+			justify-content: space-between;
+			border-radius: 5px;
+			transition: all ease 0.3s 0.3s;
+			margin-left: 2rem;
+
+			.text {
+				position: relative;
+				z-index: 2;
+				height: 100%;
+				flex: 1;
+				padding: 2rem 0 0 2rem;
+				text-align: left;
+				color: help.$text-color-2;
+
+				&::after {
+					content: "";
+					position: absolute;
+					left: 0;
+					top: 0;
+					z-index: -1;
+					height: 100%;
+					width: 150%;
+					border-radius: 5px 0 0 5px;
+					background: linear-gradient(
+						to right,
+						darken(help.$bg-1, 1) 83%,
+						rgba(help.$bg-2, 0.8),
+						rgba(help.$bg-1, 0.3),
+						transparent
+					);
+				}
+
+				.headline {
+					text-transform: capitalize;
+					font-size: 1.7rem;
+					text-shadow: 2px 2px rgba($color: #000000, $alpha: 0.3);
+					font-weight: help.$f-w-3;
+					line-height: 2;
+				}
+
+				.genre {
+					font-size: 1rem;
+					line-height: 3;
+					text-transform: capitalize;
+					color: darken($color: help.$text-color-1, $amount: 15);
+					font-weight: help.$f-w-2;
+					letter-spacing: 1.2;
+
+					.rating::before {
+						content: ". ";
+						vertical-align: top;
+					}
+				}
+
+				.about {
+					line-height: 1.5;
+					font-size: 0.9rem;
+				}
+			}
+
+			.img {
+				flex: 2;
+				img {
+					width: 100%;
+					height: 100%;
+					border-radius: 0 5px 5px 0;
+					object-fit: fill;
+				}
+			}
+		}
+	}
+}

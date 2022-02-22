@@ -38,7 +38,6 @@ html {
 body {
   background: #0c111b;
   font-family: "Roboto", sans-serif;
-  overflow: hidden;
 }
 
 a {
@@ -143,6 +142,8 @@ li {
 }
 
 .header {
+  position: fixed;
+  z-index: 8;
   padding: 0 2rem;
   width: 100%;
   height: 10vh;
@@ -371,6 +372,85 @@ li {
 }
 .header .search-down input {
   width: 100%;
+}
+
+main {
+  padding-top: 5.625rem;
+  background: linear-gradient(to top, #0c111b 30%, #121926);
+}
+main .carousel {
+  overflow: auto hidden;
+  transform-style: preserve-3d;
+  padding: 0 2rem 2rem;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+}
+main .carousel::-webkit-scrollbar {
+  display: none;
+}
+main .carousel :first-child {
+  margin: 0 !important;
+}
+main .carousel__item {
+  min-width: 85%;
+  height: 63vh;
+  justify-content: space-between;
+  border-radius: 5px;
+  transition: all ease 0.3s 0.3s;
+  margin-left: 2rem;
+}
+main .carousel__item .text {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  flex: 1;
+  padding: 2rem 0 0 2rem;
+  text-align: left;
+  color: #e0ded7;
+}
+main .carousel__item .text::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  height: 100%;
+  width: 150%;
+  border-radius: 5px 0 0 5px;
+  background: linear-gradient(to right, #0a0f17 83%, rgba(18, 25, 38, 0.8), rgba(12, 17, 27, 0.3), transparent);
+}
+main .carousel__item .text .headline {
+  text-transform: capitalize;
+  font-size: 1.7rem;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+  font-weight: 900;
+  line-height: 2;
+}
+main .carousel__item .text .genre {
+  font-size: 1rem;
+  line-height: 3;
+  text-transform: capitalize;
+  color: #959084;
+  font-weight: 600;
+  letter-spacing: 1.2;
+}
+main .carousel__item .text .genre .rating::before {
+  content: ". ";
+  vertical-align: top;
+}
+main .carousel__item .text .about {
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+main .carousel__item .img {
+  flex: 2;
+}
+main .carousel__item .img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0 5px 5px 0;
+  object-fit: fill;
 }
 
 /*# sourceMappingURL=style.css.map */
