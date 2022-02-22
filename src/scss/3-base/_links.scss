@@ -1,0 +1,18 @@
+// ================== links
+
+// variable module
+@use "../1-helpers/variables" as var;
+
+.list {
+	li a {
+		display: block;
+		padding: 0.8rem 1rem;
+		color: var.$text-color-1;
+	}
+}
+
+.user__login a {
+	font-size: 0.9rem;
+	font-weight: var.$f-w-2;
+	letter-spacing: 0.3px;
+}

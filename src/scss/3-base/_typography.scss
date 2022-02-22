@@ -1,0 +1,71 @@
+// ====================== typography
+
+// variable module
+@use "../1-helpers/variables" as var;
+
+// header-type
+.header {
+	font-size: 1.1rem;
+
+	.nav__menu {
+		color: var.$text-color-1;
+
+		i {
+			font-weight: var.$f-w-3;
+		}
+
+		.list li {
+			&:hover .symbol_color {
+				color: var.$text-color-2;
+			}
+
+			&:hover .text_color {
+				color: var.$text-color-2;
+				font-weight: var.$f-w-1;
+			}
+
+			.symbol_color {
+				color: lighten($color: #000000, $amount: 50);
+			}
+
+			.text_color {
+				font-size: 1rem;
+			}
+		}
+	}
+
+	.nav__links {
+		:nth-child(2) {
+			text-transform: uppercase;
+		}
+
+		div {
+			text-transform: capitalize;
+			font-weight: var.$f-w-3;
+		}
+
+		.nav__link_color {
+			& :hover {
+				color: var.$text-color-2;
+			}
+		}
+
+		.kids a {
+			font-weight: bolder;
+			letter-spacing: 2px;
+			color: var.$yellow;
+		}
+	}
+}
+
+.user {
+	input {
+		font-size: 1rem;
+		color: var.$text-color-1;
+	}
+	::placeholder {
+		font-size: 1rem;
+		text-transform: capitalize;
+		color: var.$text-color-1;
+	}
+}

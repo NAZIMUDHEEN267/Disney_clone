@@ -1,15 +1,12 @@
 "use strict";
 
-const elements = document.querySelectorAll("#js-nav-links .nav__link_color");
+const body = document.querySelector("body");
+const searchInput = document.querySelector("#js-search input");
 
-elements.forEach(element => {
-	element.addEventListener("mouseover", event => {
-		const text = event.target.innerText.toLowerCase();
-		const eventElem = document.querySelector(`.${text}-list`);
-		eventElem.classList.add("animation-nav");
-
-		eventElem.addEventListener("mouseleave", () => {
-			eventElem.classList.remove("animation-nav");
-		});
-	});
+body.addEventListener("click", event => {
+	if (event.target.placeholder === "search") {
+		event.target.style.width = "100%";
+	} else {
+		searchInput.style.width = "50%";
+	}
 });

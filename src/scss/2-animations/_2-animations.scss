@@ -1,8 +1,16 @@
-// all animation contents compressed here
+
+// ================== animations
+
+// function module
+@use '../1-helpers/functions' as func;
+
+
+//for menu-bar hover effect 
 @keyframes menu-list {
 	0% {
 		transform: rotateX(-90deg);
 		opacity: 0;
+		visibility: hidden;
 	}
 	50% {
 		transform: rotateX(-20deg);
@@ -14,9 +22,10 @@
 	}
 }
 
+// for nav links hover effect
 @keyframes nav-list {
 	from{
-		transform: translateY(40px);
+		transform: translateY(func.convertor(25));
 		opacity: .2;
 	}
 	to{
