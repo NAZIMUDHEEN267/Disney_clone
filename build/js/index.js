@@ -5,6 +5,8 @@
 const body = document.querySelector("body");
 const searchInput = document.querySelector("#js-search input");
 const carousel = document.getElementById("js-carousel");
+const btnLeft = document.getElementById("js-btn-left");
+const btnRight = document.getElementById("js-btn-right");
 
 body.addEventListener("click", event => {
 	if (event.target.placeholder === "search") {
@@ -24,11 +26,11 @@ async function data() {
 	const path = "../Assets/container/";
 
 	for (let i = 0; i < container.length; i++) {
-		console.log(path + container[i].img);
+		const modifiedName = container[i].name.split("_").join(" ");
 		carousel.innerHTML += `
-							<div class="carousel__item flex">
+							<div class="container__item flex">
 								<div class="text">
-									<h1 class="headline">avatar</h1>
+									<h1 class="headline">${modifiedName}</h1>
 									<p class="genre">thriller
 										<span class="rating">4.2</span>
 									</p>
@@ -37,7 +39,6 @@ async function data() {
 									</span>
 								</div>
 
-								// image
 								<div class="img">
 									<img src="${path}${container[i].img}" alt=${container[i].img}/>
 								</div>
@@ -47,4 +48,11 @@ async function data() {
 }
 
 data();
+
 // carousel effect
+btnLeft.addEventListener("click", e => {});
+
+let client = carousel.offsetWidth;
+btnRight.addEventListener("click", () => {
+	carousel.scrollBy(client, 10);
+});

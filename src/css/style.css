@@ -379,20 +379,51 @@ main {
   background: linear-gradient(to top, #0c111b 30%, #121926);
 }
 main .carousel {
+  position: relative;
+}
+main .carousel:hover .carousel__button i {
+  visibility: visible;
+}
+main .carousel .carousel__button {
+  position: absolute;
+  z-index: 5;
+  width: 3%;
+  height: 100%;
+}
+main .carousel .carousel__button i {
+  visibility: hidden;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.5rem;
+  color: #b8b5ad;
+  cursor: pointer;
+}
+main .carousel .button__bg--left {
+  left: 0;
+  background: linear-gradient(to right, #121926, transparent);
+}
+main .carousel .button__bg--left i {
+  left: 0;
+}
+main .carousel .button__bg--right {
+  right: 0;
+  background: linear-gradient(to left, #121926, transparent);
+}
+main .carousel .button__bg--right i {
+  right: 0;
+}
+main .carousel .carousel__container {
   overflow: auto hidden;
   transform-style: preserve-3d;
-  padding: 0 2rem 2rem;
   -ms-overflow-style: none;
   /* IE and Edge */
   scrollbar-width: none;
 }
-main .carousel::-webkit-scrollbar {
+main .carousel .carousel__container::-webkit-scrollbar {
   display: none;
 }
-main .carousel :first-child {
-  margin: 0 !important;
-}
-main .carousel__item {
+main .carousel .carousel__container .container__item {
   min-width: 85%;
   height: 63vh;
   justify-content: space-between;
@@ -400,7 +431,7 @@ main .carousel__item {
   transition: all ease 0.3s 0.3s;
   margin-left: 2rem;
 }
-main .carousel__item .text {
+main .carousel .carousel__container .container__item .text {
   position: relative;
   z-index: 2;
   height: 100%;
@@ -409,7 +440,7 @@ main .carousel__item .text {
   text-align: left;
   color: #e0ded7;
 }
-main .carousel__item .text::after {
+main .carousel .carousel__container .container__item .text::after {
   content: "";
   position: absolute;
   left: 0;
@@ -420,14 +451,14 @@ main .carousel__item .text::after {
   border-radius: 5px 0 0 5px;
   background: linear-gradient(to right, #0a0f17 83%, rgba(18, 25, 38, 0.8), rgba(12, 17, 27, 0.3), transparent);
 }
-main .carousel__item .text .headline {
+main .carousel .carousel__container .container__item .text .headline {
   text-transform: capitalize;
   font-size: 1.7rem;
   text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
   font-weight: 900;
   line-height: 2;
 }
-main .carousel__item .text .genre {
+main .carousel .carousel__container .container__item .text .genre {
   font-size: 1rem;
   line-height: 3;
   text-transform: capitalize;
@@ -435,22 +466,25 @@ main .carousel__item .text .genre {
   font-weight: 600;
   letter-spacing: 1.2;
 }
-main .carousel__item .text .genre .rating::before {
+main .carousel .carousel__container .container__item .text .genre .rating::before {
   content: ". ";
   vertical-align: top;
 }
-main .carousel__item .text .about {
+main .carousel .carousel__container .container__item .text .about {
   line-height: 1.5;
   font-size: 0.9rem;
 }
-main .carousel__item .img {
+main .carousel .carousel__container .container__item .img {
   flex: 2;
 }
-main .carousel__item .img img {
+main .carousel .carousel__container .container__item .img img {
   width: 100%;
   height: 100%;
   border-radius: 0 5px 5px 0;
   object-fit: fill;
+}
+main .carousel .carousel__container :nth-child(11) {
+  margin-right: 2rem;
 }
 
 /*# sourceMappingURL=style.css.map */
