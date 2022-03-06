@@ -87,6 +87,6 @@ btnRight.addEventListener("click", () => slider.forward());
 // btnLeft.addEventListener("click", () => backward());
 
 // automatic slide movement
-setInterval(() => {
-	slider.forward();
-}, 7000);
+// setInterval(() => {
+// 	slider.forward();
+// }, 7000);

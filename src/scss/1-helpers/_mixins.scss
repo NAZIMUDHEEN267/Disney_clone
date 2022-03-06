@@ -2,7 +2,7 @@
 
 // modules
 @use "../1-helpers/variables" as var;
-@use '../1-helpers/functions' as func;
+@use "../1-helpers/functions" as func;
 
 // for media query, different media size used
 @mixin desktop {
@@ -32,10 +32,8 @@
 @mixin five-hundred {
 	@media (max-width: 500px) {
 		@content;
-	}	
+	}
 }
-
-
 
 // for search block
 @mixin search {
@@ -66,6 +64,44 @@
 
 		i {
 			font-size: 1rem;
+		}
+	}
+}
+
+// for carousel buttons
+@mixin angle-btn($color) {
+	.angle__button {
+		position: absolute;
+		z-index: 5;
+		width: 3%;
+		height: 100%;
+		opacity: 0;
+
+		i {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			font-size: 2.5rem;
+			color: var.$text-color-1;
+			cursor: pointer;
+		}
+	}
+
+	// carousel button background
+	.button__bg--left {
+		left: 0;
+		background: linear-gradient(to right, $color, transparent);
+
+		i {
+			left: 0;
+		}
+	}
+
+	.button__bg--right {
+		right: 0;
+		background: linear-gradient(to left, $color, transparent);
+		i {
+			right: 0;
 		}
 	}
 }

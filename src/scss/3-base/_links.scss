@@ -16,3 +16,20 @@
 	font-weight: var.$f-w-2;
 	letter-spacing: 0.3px;
 }
+
+.item__details a {
+	display: block;
+	margin-bottom: 0.2rem;
+	padding: 0.1rem;
+	border-radius: 2px;
+	text-align: center;
+	font-size: 0.7rem;
+
+	&:hover {
+		background: var.$bg-3;
+	}
+
+	i {
+		margin-right: 0.3rem;
+	}
+}

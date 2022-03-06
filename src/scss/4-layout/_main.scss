@@ -1,60 +1,30 @@
 @use "../1-helpers/1-helpers" as help;
 
 // ================ main
+
+// hide scroll-bar
+%scroll-width {
+	&::-webkit-scrollbar {
+		display: none;
+	}
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none;
+}
+
 main {
 	padding-top: help.convertor(90);
 	background: linear-gradient(to top, help.$bg-1 30%, help.$bg-2);
 
+	// carousel section
 	.carousel {
 		position: relative;
 
-		&:hover .carousel__button i {
-			visibility: visible;
+		&:hover .angle__button {
+			opacity: 1;
 		}
 
-		// for carousel buttons
-		.carousel__button {
-			position: absolute;
-			z-index: 5;
-			width: 3%;
-			height: 100%;
-
-			i {
-				visibility: hidden;
-				position: absolute;
-				top: 50%;
-				transform: translateY(-50%);
-				font-size: 2.5rem;
-				color: help.$text-color-1;
-				cursor: pointer;
-			}
-		}
-
-		// carousel button background
-		.button__bg--left {
-			left: 0;
-			background: linear-gradient(
-				to right,
-				rgba(0, 0, 0, 0.1),
-				transparent
-			);
-
-			i {
-				left: 0;
-			}
-		}
-
-		.button__bg--right {
-			right: 0;
-			background: linear-gradient(
-				to left,
-				rgba(0, 0, 0, 0.1),
-				transparent
-			);
-			i {
-				right: 0;
-			}
-		}
+		// calling angle buttons style mixin
+		@include help.angle-btn(rgba(0, 0, 0, 0.1));
 
 		// carousel container
 		.carousel__container {
@@ -62,21 +32,15 @@ main {
 			transform-style: preserve-3d;
 			scroll-behavior: smooth;
 
-			// hide scroll-bar
-			&::-webkit-scrollbar {
-				display: none;
-			}
-			-ms-overflow-style: none; /* IE and Edge */
-			scrollbar-width: none;
+			@extend %scroll-width;
 
 			.container__item {
 				min-width: 100%;
 				height: 63vh;
-				padding: 0 3rem;
+				padding: 0 2rem;
 				justify-content: space-between;
 				border-radius: 5px;
 				transition: all ease 0.3s 0.3s;
-
 
 				// media query for laptop size, decreasing the height
 				@include help.laptop {
@@ -134,6 +98,106 @@ main {
 
 			:nth-child(10) {
 				padding-right: 2rem;
+			}
+		}
+	}
+
+	// poster section
+	.poster {
+		position: relative;
+		width: 100%;
+		margin-top: 2rem;
+		padding-bottom: 1rem;
+
+		&:hover .angle__button {
+			opacity: 0.8;
+		}
+
+		// calling angle buttons style mixin
+		@include help.angle-btn(rgba(0, 0, 0, 0.5) 70%);
+
+		.angle__button {
+			height: 80%;
+			bottom: 5%;
+			width: 4%;
+		}
+
+		.angle__button i {
+			font-size: 2rem;
+		}
+
+		&__headline {
+			padding: 0.5rem 2rem;
+			font-size: 1.2rem;
+			text-transform: capitalize;
+			font-weight: help.$f-w-2;
+			color: help.$text-color-2;
+		}
+
+		&__container {
+			display: grid;
+			cursor: pointer;
+			padding: 1rem 2rem;
+			overflow-y: visible !important;
+
+			// hide scroll bar
+			@extend %scroll-width;
+
+			// variables for grid template
+			$grid-min: help.convertor(150);
+			$grid-max: help.convertor(200);
+
+			grid-template-columns:
+				minmax($grid-min, $grid-max) repeat(
+					8,
+					minmax($grid-min, $grid-max)
+				)
+				minmax($grid-min, $grid-max);
+
+			grid-template-rows: 200px;
+			overflow: scroll;
+			column-gap: 1rem;
+
+			.poster__item {
+				position: relative;
+				border-radius: 8px;
+				background: url('../Assets/poster/cobain.jpeg');
+				transition: all ease 0.2s 0.2s;
+
+				&:hover {
+					transform: scale(1.2);
+				}
+
+				.item__details {
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					width: 100%;
+					height: 70%;
+					text-align: left;
+					padding: 0 1rem 1rem;
+					background: linear-gradient(
+						to top,
+						darken(help.$bg-3, 10) 60%,
+						transparent
+					);
+					color: help.$text-color-2;
+
+					.item__name {
+						font-size: 0.7rem;
+						font-weight: help.$f-w-3;
+					}
+
+					.item__goner {
+						font-size: 0.7rem;
+						font-weight: help.$f-w-2;
+					}
+
+					.item__description h6 {
+						font-size: 0.61rem;
+						margin: 0.5rem 0;
+					}
+				}
 			}
 		}
 	}
