@@ -2,6 +2,8 @@
 
 // variable module
 @use "../1-helpers/variables" as var;
+@use "../1-helpers/mixins" as mixin;
+@use "../1-helpers/functions" as func;
 
 // header-type
 .header {
@@ -67,5 +69,62 @@
 		font-size: 1rem;
 		text-transform: capitalize;
 		color: var.$text-color-1;
+	}
+}
+
+// main body
+.text {
+
+	.headline {
+		text-transform: capitalize;
+		font-size: func.convertor(28);
+		text-shadow: 2px 2px rgba($color: #000000, $alpha: 0.3);
+		font-weight: var.$f-w-2;
+		line-height: 2;
+
+		// for tablet size, minimize line-height and font-size 
+		@include mixin.tablet {
+			font-size: func.convertor(24);
+		}
+
+		@include mixin.mobile {
+			font-size: func.convertor(14);
+			line-height: 1.5;
+		}
+	}
+
+	.genre {
+		font-size: func.convertor(26);
+		line-height: 2;
+		text-transform: capitalize;
+		color: darken($color: var.$text-color-1, $amount: 15);
+		font-weight: var.$f-w-2;
+		letter-spacing: 1.2;
+
+		// for tablet size, 
+		@include mixin.tablet {
+			font-size: func.convertor(22);
+			line-height: 1.5;
+		}
+
+		@include mixin.mobile {
+			font-size: func.convertor(12);
+			white-space: nowrap;
+		}
+	}
+
+	.about {
+		line-height: 1.5;
+		font-size: 1rem;
+
+		// font size reducing when tablet 
+		@include mixin.tablet {
+			font-size: func.convertor(14);
+		}
+
+		@include mixin.mobile {
+			font-size: func.convertor(10);
+			line-height: 1;
+		}
 	}
 }

@@ -6,8 +6,7 @@
 				"targets": {
 					"edge": "10"
 				},
-				"useBuiltIns": "usage",
-				"corejs": "3.6.5"
+				"useBuiltIns": "usage"
 			}
 		]
 	],
