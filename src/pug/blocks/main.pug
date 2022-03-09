@@ -24,7 +24,7 @@ mixin poster(rowNum, names)
 		h3.poster__headline
 		.poster__container 
 			-for(let i=1; i<=10; i++)
-				.poster__item(style="background: url(../Assets/poster/"+`${rowNum}-${i}`+".jpeg); background-size: stretch;")
+				.poster__item(style="background: url(../Assets/poster/"+`${rowNum}-${i}`+".jpeg); background-size: cover; background-position: center top;")
 					.item__details
 						.item__name 
 							p lorem

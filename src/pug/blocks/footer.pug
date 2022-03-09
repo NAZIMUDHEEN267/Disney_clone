@@ -4,14 +4,31 @@ footer.footer
 	.footer__description 
 		table 
 			tr 
-				td a
-				td s
-				td s
-				td s
-				td s
-				td s
+				th 
+					a(href="#") about disney<sup>+</sup> hotstar 
+				th 
+					a(href="#") terms of use 
+				th 
+					a(href="#") privacy policy
+				th 
+					a(href="#") FAQ
+				th 
+					a(href="#") feedback
+				th 
+					a(href="#") careers
 		.footer__about
 			-const year = new Date().getFullYear();
-			p &copy;
+			p.about__description &copy;
 				span= year
-				| STAR. 
+					| STAR. 
+				| Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi possimus accusantium facere suscipit deserunt at itaque aperiam maiores enim ullam iure laborum eum iusto dolorum, neque sint rerum explicabo quasi?
+		.footer__social 
+			p connect with us
+			.social__icons 
+				i.far.fa-twitter
+				i.far.fa-facebook
+		.footer__platform 
+			p disney<sup>+</sup> hotstar app
+			.platforms 
+				img(src="../Assets/app_store.png", alt="app-store.png" width="130px")
+				img(src="../Assets/play_store.png", alt="play-store.png" width="130px")
