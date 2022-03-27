@@ -5,7 +5,7 @@
 	"scripts": {
 		"pug": "pug -w ./src/pug -o ./build/html -P",
 		"eslint": "npm init @eslint/config",
-		"errors": "npx eslint ./src/rmDir.js",
+		"errors": "npx eslint ./src/**/*.js",
 		"babel": "./node_modules/.bin/babel src/javascript --out-dir build/js",
 		"remove":"node src/rmDir.js",
 		"watch": "nodemon",

@@ -220,6 +220,10 @@ li {
   margin-right: 0.3rem;
 }
 
+.footer table a {
+  color: #e0ded7;
+}
+
 .header {
   position: fixed;
   z-index: 8;
@@ -660,6 +664,93 @@ main .poster__container .poster__item .item__details .item__goner {
 main .poster__container .poster__item .item__details .item__description h6 {
   font-size: 0.61rem;
   margin: 0.5rem 0;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 9.375rem;
+  align-items: center;
+  color: #b8b5ad;
+  text-transform: capitalize;
+  text-align: center;
+}
+@media (max-width: 1024px) {
+  .footer {
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .footer {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}
+.footer__description {
+  text-align: left;
+  padding: 0 1rem;
+}
+.footer__description table {
+  text-transform: capitalize;
+  font-weight: 900;
+  font-size: 1rem;
+  white-space: nowrap;
+  line-height: 1.8;
+  table-layout: fixed;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .footer__description table tr {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+.footer__description table td {
+  word-wrap: break-word;
+}
+.footer__description table td :first-child {
+  margin-left: 0.8rem;
+}
+.footer__description table td :hover {
+  color: #0a0a9e;
+}
+.footer__description .footer__about {
+  font-size: 0.8rem;
+  margin-left: 0.8rem;
+}
+.footer__social .social__icons {
+  font-size: 2rem;
+  margin-top: 1rem;
+}
+.footer__social .social__icons i {
+  cursor: pointer;
+}
+.footer__social .social__icons i:hover {
+  filter: opacity(0.3);
+}
+.footer__social .social__icons :nth-child(1) {
+  margin-right: 0.8rem;
+}
+.footer__platform .platforms {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.8rem;
+}
+.footer__platform .platforms div {
+  padding: 0.5rem;
+  border-radius: 5px;
+  background: #141c2d;
+  cursor: pointer;
+}
+.footer__platform .platforms div:hover {
+  background: #334366;
+}
+.footer__platform .platforms .apple {
+  margin-right: 1rem;
+}
+.footer__platform .platforms img {
+  width: 6rem;
 }
 
 /*# sourceMappingURL=style.css.map */

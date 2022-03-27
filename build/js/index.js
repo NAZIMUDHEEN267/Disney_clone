@@ -1,3 +1,5 @@
+"use strict";
+
 // increasing the search input width
 
 const body = document.querySelector("body");
@@ -5,8 +7,11 @@ const searchInput = document.querySelector("#js-search input");
 const carousel = document.getElementById("js-carousel");
 const btnLeft = document.getElementById("js-btn-left");
 const btnRight = document.getElementById("js-btn-right");
+const posterContainer = document.querySelector(".poster__container");
+const posterBtnLeft = document.querySelector(".poster #js-btn-left");
+const posterBtnRight = document.querySelector(".poster #js-btn-right");
 
-body.addEventListener("click", (event) => {
+body.addEventListener("click", event => {
 	if (event.target.placeholder === "search") {
 		event.target.style.width = "100%";
 	} else {
@@ -17,14 +22,13 @@ body.addEventListener("click", (event) => {
 class Slider {
 	constructor() {
 		// data fetching
-		fetch("/data/data.json")
-			.then((jsonData) => jsonData.json())
-			.then((data) => {
-				// destructuring container
-				const { container } = data;
+		fetch("/data/data.json").then(jsonData => jsonData.json()).then(data => {
+			// destructuring container
+			const { container } = data;
 
-				this.items = container;
-			});
+			this.items = container;
+			this.increment = 1;
+		});
 	}
 
 	creator(name, image) {
@@ -49,41 +53,53 @@ class Slider {
 
 	// move slide functions
 	forward() {
-		carousel.innerHTML += this.creator(
-			this.items[this.increment].name,
-			this.items[this.increment].img
-		);
+		carousel.innerHTML += this.creator(this.items[this.increment].name, this.items[this.increment].img);
 
+		// get children's
 		const children = carousel.children;
 
 		if (children.length > 2) {
-			carousel.innerHTML += this.creator(
-				this.items[this.increment + 1].name,
-				this.creator[this.increment + 1].img
-			)
+			children[0].remove();
 		}
 
 		// movement
-		const scrollTo = children[this.increment];
-
+		const scrollTo = children[1];
 		scrollTo.scrollIntoView(true);
 
-		increment += 1;
+		if (this.increment === this.items.length - 1) {
+			this.increment = -1;
+		}
+
+		this.increment += 1;
 	}
 
 	backward() {}
 }
 
-const slid = new Slider();
+const slider = new Slider();
+
 // move forward slide, when clicking button right
-btnRight.addEventListener("click", () => slid.forward());
+btnRight.addEventListener("click", () => slider.forward());
 
 // move backward slide when clicking left button
 // btnLeft.addEventListener("click", () => backward());
 
-// // automatic slide movement
+// automatic slide movement
 // setInterval(() => {
-// 	if (i === carousel.children.length - 1) i = 0;
-// 	forward();
+// 	slider.forward();
 // }, 7000);
-console.log('hello');
+let count = -150;
+posterBtnRight.addEventListener("click", () => {
+	if (posterContainer.clientWidth <= posterContainer.scrollWidth) {
+		let sum = 0;
+		let children = posterContainer.children;
+		for (let i = 0; i < children.length; i++) {
+			sum += children[i].clientWidth;
+			if (sum >= posterContainer.clientWidth) {
+				posterContainer.scroll(sum, 0);
+				console.log(sum);
+				break;
+			}
+		}
+	}
+});
