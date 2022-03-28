@@ -71,7 +71,7 @@ main {
 					z-index: 2;
 					height: 100%;
 					flex: 1;
-					padding: 2rem 0 0 2rem;
+					padding: 1rem 0 0 1rem;
 					text-align: left;
 					color: help.$text-color-2;
 
@@ -80,14 +80,9 @@ main {
 						padding: 1rem 0 0 1rem;
 					}
 
-					// media query for mobile
+					// when size reach mobile size text will be hidden
 					@include help.mobile {
-						position: absolute;
-						width: 30%;
-						display: flex;
-						flex-direction: column;
-						justify-content: end;
-						padding-bottom: 1rem;
+						display: none;
 					}
 
 					&::after {
@@ -107,10 +102,9 @@ main {
 							transparent
 						);
 
-
-						// opacity level decreasing 
+						// opacity level decreasing
 						@include help.mobile {
-							opacity: .4;
+							opacity: 0.4;
 						}
 					}
 				}
@@ -143,7 +137,7 @@ main {
 		}
 
 		// calling angle buttons style mixin
-		@include help.angle-btn(rgba(0, 0, 0, 0.8) 70%);
+		@include help.angle-btn(rgba(0, 0, 0, 0.3) 70%);
 
 		.angle__button {
 			height: 80%;
@@ -202,7 +196,7 @@ main {
 
 			// grid values for mobile
 			@include help.mobile {
-				@include help.grid-value(130px, 90px);
+				@include help.grid-value(150px, 100px);
 			}
 
 			overflow: scroll;
@@ -242,7 +236,7 @@ main {
 					// poster item size for tablet
 					@include help.tablet {
 						height: 90%;
-						padding: 0 .5rem .5rem;
+						padding: 0 0.5rem 0.5rem;
 					}
 
 					// poster item size for mobile
@@ -264,9 +258,9 @@ main {
 						font-size: 0.61rem;
 						margin: 0.5rem 0;
 
-						// font size for mobile 
+						// font size for mobile
 						@include help.mobile {
-							font-size: .5rem;
+							font-size: 0.5rem;
 						}
 					}
 				}

@@ -565,7 +565,7 @@ main .carousel .carousel__container .container__item .text {
   z-index: 2;
   height: 100%;
   flex: 1;
-  padding: 2rem 0 0 2rem;
+  padding: 1rem 0 0 1rem;
   text-align: left;
   color: #e0ded7;
 }
@@ -576,12 +576,7 @@ main .carousel .carousel__container .container__item .text {
 }
 @media (max-width: 424px) {
   main .carousel .carousel__container .container__item .text {
-    position: absolute;
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    padding-bottom: 1rem;
+    display: none;
   }
 }
 main .carousel .carousel__container .container__item .text::after {
@@ -637,14 +632,14 @@ main .poster .angle__button i {
 }
 main .poster .button__bg--left {
   left: 0;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 70%, transparent);
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.3) 70%, transparent);
 }
 main .poster .button__bg--left i {
   left: 0;
 }
 main .poster .button__bg--right {
   right: 0;
-  background: linear-gradient(to left, rgba(0, 0, 0, 0.8) 70%, transparent);
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.3) 70%, transparent);
 }
 main .poster .button__bg--right i {
   right: 0;
@@ -685,7 +680,7 @@ main .poster__container {
   cursor: pointer;
   padding: 1rem 2rem;
   overflow-y: hidden !important;
-  grid-template-columns: minmax(150px, 200px) repeat(10, minmax(150px, 200px)) minmax(150px, 200px);
+  grid-template-columns: minmax(150px, 200px) repeat(8, minmax(150px, 200px)) minmax(150px, 200px);
   grid-template-rows: 200px;
   overflow: scroll;
   column-gap: 0.5rem;
@@ -697,14 +692,14 @@ main .poster__container {
 }
 @media (max-width: 768px) {
   main .poster__container {
-    grid-template-columns: minmax(120px, 170px) repeat(10, minmax(120px, 170px)) minmax(120px, 170px);
+    grid-template-columns: minmax(120px, 170px) repeat(8, minmax(120px, 170px)) minmax(120px, 170px);
     grid-template-rows: 170px;
   }
 }
 @media (max-width: 424px) {
   main .poster__container {
-    grid-template-columns: minmax(90px, 130px) repeat(10, minmax(90px, 130px)) minmax(90px, 130px);
-    grid-template-rows: 130px;
+    grid-template-columns: minmax(100px, 150px) repeat(8, minmax(100px, 150px)) minmax(100px, 150px);
+    grid-template-rows: 150px;
   }
 }
 main .poster__container .poster__item {

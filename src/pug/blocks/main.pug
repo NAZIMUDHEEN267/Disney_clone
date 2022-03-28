@@ -27,7 +27,7 @@ mixin poster(rowNum, names)
 		
 		.poster__container 
 			-for(let i=1; i<=10; i++)
-				.poster__item(style="background: url(../Assets/poster/"+`${rowNum}-${i}`+".jpeg); background-size: cover; background-position: center center; background-repeat: no-repeat;")
+				.poster__item(style="background: url(./Assets/poster/"+`${rowNum}-${i}`+".jpeg); background-size: cover; background-position: center center; background-repeat: no-repeat;")
 					.item__details
 						.item__name 
 							p movie name
@@ -54,15 +54,6 @@ main
 
 		//- carousel container for listing movies
 		.carousel__container.flex#js-carousel
-			.container__item.flex 
-				.text 
-					h1.headline Avatar 
-					p.genre thriller &nbsp;
-						span.rating &#9733;&#9733;&#9733;&#9733;&#9734; 4.2 
-					span.about 
-						| Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde quia, enim beatae fugit inventore, laudantium obcaecati sint voluptate ipsam pariatur sunt deleniti ad error eum consequuntur, est impedit. Quas, delectus.
-				.img 
-					img(src="../Assets/container/avatar.jpeg", alt="avatar.jpeg")
 
 	//- poster names collection of each row
 	-const names1 = ["alien isolation", "aquaman", "avpr", "client eastwood", "cobain", "dark", "drive", "fast and the furious", "fight club", "for venetta"]

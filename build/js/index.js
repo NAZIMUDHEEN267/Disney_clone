@@ -26,17 +26,12 @@ class Slider {
 			// destructuring container
 			const { container } = data;
 
-			this.items = container;
-			this.increment = 1;
-		});
-	}
-
-	creator(name, image) {
-		// creating a new node
-		return `
+			container.forEach(item => {
+				// creating a new node
+				carousel.innerHTML += `
 				<div class="container__item flex">
 					<div class="text">
-						<h1 class="headline">${name}</h1>
+						<h1 class="headline">${item.name}</h1>
 						<p class="genre">thriller
 							<span class="rating">4.2</span>
 						</p>
@@ -45,61 +40,16 @@ class Slider {
 						</span>
 					</div>
 					<div class="img">
-						<img src="../Assets/container/${image}" alt=${image}/>
+						<img src="./Assets/container/${item.img}" alt=${item.img}/>
 					</div>
 				</div>
 			`;
+			});
+		});
 	}
 
-	// move slide functions
-	forward() {
-		carousel.innerHTML += this.creator(this.items[this.increment].name, this.items[this.increment].img);
-
-		// get children's
-		const children = carousel.children;
-
-		if (children.length > 2) {
-			children[0].remove();
-		}
-
-		// movement
-		const scrollTo = children[1];
-		scrollTo.scrollIntoView(true);
-
-		if (this.increment === this.items.length - 1) {
-			this.increment = -1;
-		}
-
-		this.increment += 1;
-	}
-
-	backward() {}
+	forward() {}
 }
 
+// move slide functions
 const slider = new Slider();
-
-// move forward slide, when clicking button right
-btnRight.addEventListener("click", () => slider.forward());
-
-// move backward slide when clicking left button
-// btnLeft.addEventListener("click", () => backward());
-
-// automatic slide movement
-// setInterval(() => {
-// 	slider.forward();
-// }, 7000);
-let count = -150;
-posterBtnRight.addEventListener("click", () => {
-	if (posterContainer.clientWidth <= posterContainer.scrollWidth) {
-		let sum = 0;
-		let children = posterContainer.children;
-		for (let i = 0; i < children.length; i++) {
-			sum += children[i].clientWidth;
-			if (sum >= posterContainer.clientWidth) {
-				posterContainer.scroll(sum, 0);
-				console.log(sum);
-				break;
-			}
-		}
-	}
-});

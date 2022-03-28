@@ -3,7 +3,7 @@
 	"version": "1.0.1",
 	"description": "",
 	"scripts": {
-		"pug": "pug -w ./src/pug -o ./build/html -P",
+		"pug": "pug -w ./src/pug -o ./build",
 		"eslint": "npm init @eslint/config",
 		"errors": "npx eslint ./src/**/*.js",
 		"babel": "./node_modules/.bin/babel src/javascript --out-dir build/js",
