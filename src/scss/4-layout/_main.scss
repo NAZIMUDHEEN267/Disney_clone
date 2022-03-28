@@ -18,6 +18,7 @@ main {
 	// carousel section
 	.carousel {
 		position: relative;
+		margin: 1rem 0 2rem 0;
 
 		&:hover .angle__button {
 			opacity: 1;
@@ -25,6 +26,13 @@ main {
 
 		// calling angle buttons style mixin
 		@include help.angle-btn(rgba(0, 0, 0, 0.1));
+
+		// hide the angle button when reach tablet size
+		.angle__button {
+			@include help.tablet {
+				display: none;
+			}
+		}
 
 		// carousel container
 		.carousel__container {
@@ -47,9 +55,15 @@ main {
 					height: 50vh;
 				}
 
-				// media query for tablet
+				// media query for tablet size
 				@include help.tablet {
 					height: 40vh;
+					padding: 0 0.5rem;
+				}
+
+				// media query for mobile size
+				@include help.mobile {
+					height: 30vh;
 				}
 
 				.text {
@@ -64,6 +78,16 @@ main {
 					// media query for tablet
 					@include help.tablet {
 						padding: 1rem 0 0 1rem;
+					}
+
+					// media query for mobile
+					@include help.mobile {
+						position: absolute;
+						width: 30%;
+						display: flex;
+						flex-direction: column;
+						justify-content: end;
+						padding-bottom: 1rem;
 					}
 
 					&::after {
@@ -82,6 +106,12 @@ main {
 							rgba(help.$bg-1, 0.3),
 							transparent
 						);
+
+
+						// opacity level decreasing 
+						@include help.mobile {
+							opacity: .4;
+						}
 					}
 				}
 			}
@@ -106,11 +136,10 @@ main {
 	.poster {
 		position: relative;
 		width: 100%;
-		margin-top: 2rem;
 		padding-bottom: 1rem;
 
 		&:hover .angle__button {
-			opacity: 0.8;
+			opacity: 0.7;
 		}
 
 		// calling angle buttons style mixin
@@ -120,6 +149,11 @@ main {
 			height: 80%;
 			bottom: 10%;
 			width: 4%;
+			z-index: 7;
+
+			@include help.tablet {
+				display: none;
+			}
 		}
 
 		.angle__button i {
@@ -132,31 +166,47 @@ main {
 			text-transform: capitalize;
 			font-weight: help.$f-w-2;
 			color: help.$text-color-2;
+
+			// media-query tablet \
+			@include help.tablet {
+				padding: 0.5rem;
+			}
+
+			// media-query mobile
+			@include help.mobile {
+				font-size: 1rem;
+			}
 		}
 
 		&__container {
 			display: grid;
 			cursor: pointer;
 			padding: 1rem 2rem;
-			overflow-y: visible !important;
+			overflow-y: hidden !important;
+
+			// media-query tablet
+			@include help.tablet {
+				padding: 1rem 0.5rem;
+			}
 
 			// hide scroll bar
 			@extend %scroll-width;
 
-			// variables for grid template
-			$grid-min: help.convertor(150);
-			$grid-max: help.convertor(200);
+			// grid values for laptop and above devices (height and width for poster items)
+			@include help.grid-value(200px, 150px);
 
-			grid-template-columns:
-				minmax($grid-min, $grid-max) repeat(
-					8,
-					minmax($grid-min, $grid-max)
-				)
-				minmax($grid-min, $grid-max);
+			// grid values for tablet
+			@include help.tablet {
+				@include help.grid-value(170px, 120px);
+			}
 
-			grid-template-rows: 200px;
+			// grid values for mobile
+			@include help.mobile {
+				@include help.grid-value(130px, 90px);
+			}
+
 			overflow: scroll;
-			column-gap: 1rem;
+			column-gap: 0.5rem;
 
 			.poster__item {
 				position: relative;
@@ -189,19 +239,35 @@ main {
 					);
 					color: help.$text-color-2;
 
+					// poster item size for tablet
+					@include help.tablet {
+						height: 90%;
+						padding: 0 .5rem .5rem;
+					}
+
+					// poster item size for mobile
+					@include help.mobile {
+						height: 95%;
+					}
+
 					.item__name {
 						font-size: 0.7rem;
 						font-weight: help.$f-w-3;
 					}
 
 					.item__goner {
-						font-size: 0.7rem;
+						font-size: 0.6rem;
 						font-weight: help.$f-w-2;
 					}
 
 					.item__description h6 {
 						font-size: 0.61rem;
 						margin: 0.5rem 0;
+
+						// font size for mobile 
+						@include help.mobile {
+							font-size: .5rem;
+						}
 					}
 				}
 			}

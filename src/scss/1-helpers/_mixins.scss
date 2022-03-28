@@ -105,3 +105,12 @@
 		}
 	}
 }
+
+// grid value convertor for poster items
+@mixin grid-value($grid-max, $grid-min) {
+	grid-template-columns:
+		minmax($grid-min, $grid-max) repeat(10, minmax($grid-min, $grid-max))
+		minmax($grid-min, $grid-max);
+
+	grid-template-rows: $grid-max;
+}

@@ -2,6 +2,7 @@
 
 // variable module
 @use "../1-helpers/variables" as var;
+@use "../1-helpers/mixins" as mixin;
 
 .list {
 	li a {
@@ -24,6 +25,12 @@
 	border-radius: 2px;
 	text-align: center;
 	font-size: 0.7rem;
+	white-space: nowrap;
+
+	// font size in mobile size 
+	@include mixin.mobile {
+		font-size: .5rem;
+	}
 
 	&:hover {
 		background: var.$bg-3;

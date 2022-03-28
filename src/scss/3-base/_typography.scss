@@ -94,7 +94,7 @@
 	}
 
 	.genre {
-		font-size: func.convertor(26);
+		font-size: func.convertor(18);
 		line-height: 2;
 		text-transform: capitalize;
 		color: darken($color: var.$text-color-1, $amount: 15);
@@ -103,13 +103,27 @@
 
 		// for tablet size, 
 		@include mixin.tablet {
-			font-size: func.convertor(22);
+		font-size: func.convertor(16);
 			line-height: 1.5;
 		}
 
 		@include mixin.mobile {
 			font-size: func.convertor(12);
 			white-space: nowrap;
+		}
+	}
+
+	.rating {
+		font-size: 1rem;
+		word-wrap: break-word;
+
+		// for tablet size
+		@include mixin.tablet {
+			font-size: .8rem;	
+		}
+
+		@include mixin.mobile {
+			font-size: .6rem;
 		}
 	}
 

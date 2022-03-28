@@ -9,25 +9,28 @@ mixin angle-btn()
 
 //- poster mixin
 //- headline variable
--let count = -1;
+-let increment = -1;
 mixin poster(rowNum, names)
 
 	//- randomly selecting a year
 	-const date = new Date().getFullYear()
 
+	//- count for headline 
 	section(class="poster")
 		+angle-btn()
 
 		//- headline array
 		-const headlines = ["latest & trending", "popular shows", "movies recommended for you"]
 
-		h3.poster__headline
+		//- increase the number when calling next timex		
+		h3.poster__headline= headlines[increment += 1]
+		
 		.poster__container 
 			-for(let i=1; i<=10; i++)
-				.poster__item(style="background: url(../Assets/poster/"+`${rowNum}-${i}`+".jpeg); background-size: contain; background-position: center center; background-repeat: no-repeat;")
+				.poster__item(style="background: url(../Assets/poster/"+`${rowNum}-${i}`+".jpeg); background-size: cover; background-position: center center; background-repeat: no-repeat;")
 					.item__details
 						.item__name 
-							p lorem
+							p movie name
 						.item__goner 
 							span horror <br>
 							span= date
@@ -54,8 +57,8 @@ main
 			.container__item.flex 
 				.text 
 					h1.headline Avatar 
-					p.genre thriller
-						span.rating 4.2 
+					p.genre thriller &nbsp;
+						span.rating &#9733;&#9733;&#9733;&#9733;&#9734; 4.2 
 					span.about 
 						| Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde quia, enim beatae fugit inventore, laudantium obcaecati sint voluptate ipsam pariatur sunt deleniti ad error eum consequuntur, est impedit. Quas, delectus.
 				.img 
