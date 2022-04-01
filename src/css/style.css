@@ -111,6 +111,13 @@ li {
   color: #b8b5ad;
 }
 
+@media (min-width: 1024px) {
+  .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
 .text .headline {
   text-transform: capitalize;
   font-size: 1.75rem;
@@ -487,7 +494,7 @@ main .poster__container::-webkit-scrollbar, main .carousel .carousel__container:
 }
 
 main {
-  padding-top: 5.625rem;
+  padding-top: 4.375rem;
   background: linear-gradient(to top, #0c111b 30%, #121926);
 }
 main .carousel {
@@ -759,7 +766,7 @@ main .poster__container .poster__item .item__details .item__description h6 {
 .footer {
   padding: 1rem;
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: minmax(70%, auto) minmax(30%, auto);
   grid-template-rows: 1fr;
   grid-template-rows: 9.375rem;
   align-items: center;
@@ -769,6 +776,7 @@ main .poster__container .poster__item .item__details .item__description h6 {
 }
 @media (max-width: 1024px) {
   .footer {
+    grid-template-columns: minmax(60%, auto) minmax(40%, auto);
     grid-template-rows: 1fr;
   }
 }
@@ -792,6 +800,12 @@ main .poster__container .poster__item .item__details .item__description h6 {
   .footer__description table tr {
     display: flex;
     flex-wrap: wrap;
+  }
+}
+@media (max-width: 768px) {
+  .footer__description table .first-row {
+    display: flex;
+    align-items: center;
   }
 }
 .footer__description table td {

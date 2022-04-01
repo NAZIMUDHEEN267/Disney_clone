@@ -7,7 +7,7 @@
 .footer {
 	padding: 1rem;
 	display: grid;
-	grid-template-columns: 2fr 1fr;
+	grid-template-columns: minmax(70%, auto) minmax(30%, auto);
 	grid-template-rows: 1fr;
 	grid-template-rows: func.convertor(150);
 	align-items: center;
@@ -17,6 +17,7 @@
 
 	// media-query laptop
 	@include mix.laptop {
+		grid-template-columns: minmax(60%, auto) minmax(40%, auto);
 		grid-template-rows: 1fr;
 	}
 
@@ -43,6 +44,13 @@
 				}
 			}
 
+			.first-row {
+				@include mix.tablet {
+					display: flex;
+					align-items: center;
+				}
+			}
+
 			td {
 				word-wrap: break-word;
 				:first-child {
@@ -66,7 +74,7 @@
 		flex-wrap: wrap;
 		justify-content: space-between;
 
-		// laptop size aligning items to center 
+		// laptop size aligning items to center
 		@include mix.laptop {
 			justify-content: center;
 			gap: 10px;
