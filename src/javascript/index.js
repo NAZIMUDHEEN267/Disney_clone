@@ -4,9 +4,10 @@ const searchInput = document.querySelector("#js-search input");
 const carousel = document.getElementById("js-carousel");
 const btnLeft = document.getElementById("js-btn-left");
 const btnRight = document.getElementById("js-btn-right");
-const posterContainer = document.querySelector(".poster__container");
-const posterBtnLeft = document.querySelector(".poster #js-btn-left");
-const posterBtnRight = document.querySelector(".poster #js-btn-right");
+const posterContainer = [...document.querySelectorAll("#js-poster-carousel")];
+const posterItem = posterContainer[0].firstElementChild;
+const posterBtnLeft = [...document.querySelectorAll(".poster #js-btn-left")];
+const posterBtnRight = [...document.querySelectorAll(".poster #js-btn-right")];
 
 // using for slider movement function
 let move = 0;
@@ -25,7 +26,6 @@ let increment = 0;
 
 // slider class for banner movement and creation
 class Slider {
-
 	// slider content creator function
 	creator() {
 		// data fetching
@@ -108,13 +108,13 @@ class Slider {
 const slider = new Slider();
 
 // slider button color change
-setInterval(()=>{
-	if(move === 0){
+setInterval(() => {
+	if (move === 0) {
 		btnLeft.style.color = "#54524c";
-	}else if(move === slider.maxWidth){
+	} else if (move === slider.maxWidth) {
 		btnRight.style.color = "#54524c";
 	}
-}, 100)
+}, 100);
 
 // creating slider contents
 slider.creator();
@@ -127,55 +127,73 @@ btnLeft.addEventListener("click", () => {
 	slider.backward();
 });
 
-// media functions 
-function line(){
-	document.querySelector('table').innerHTML = 
-	`<tr class="first-row" id="js-row">
+// media functions
+function line() {
+	document.querySelector(
+		"table"
+	).innerHTML = `<tr class="first-row" id="js-row">
 	<td><a href="#">about disney <sup style="margin: 0;">+</sup> hotstar</a></td>
 	<td><a href="#">terms of use</a></td>
 	<td><a href="#">privacy policy</a></td>
 	<td><a href="#">FAQ</a></td>
 	<td><a href="#">feedback</a></td>
 	<td><a href="#">careers</a></td>
-	</tr>`
+	</tr>`;
 }
 
-function lineBreak(){
+function lineBreak() {
 	const content = `<tr id="js-second-row">
 		<td><a href="#"/>FAQ</td>
 		<td><a href="#"/>feedback</td>
 		<td><a href="#"/>careers</td>
 		</tr>`;
-		
-		const child = document.querySelector("table tr").children;
-		
-		// remove overflowing elements
-		for (let i = 3; i < child.length; i++) {
-			child[i].remove();
-		}
-		
-		// adding second row
-		const secondRow = document.getElementById("js-second-row");
 
-		if (!secondRow) {
-			const row = document.getElementById('js-row');
-			row.insertAdjacentHTML("afterend", content);
-		}
+	const child = document.querySelector("table tr").children;
+
+	// remove overflowing elements
+	for (let i = 3; i < child.length; i++) {
+		child[i].remove();
+	}
+
+	// adding second row
+	const secondRow = document.getElementById("js-second-row");
+
+	if (!secondRow) {
+		const row = document.getElementById("js-row");
+		row.insertAdjacentHTML("afterend", content);
+	}
 }
 
 // when user using different size
 window.addEventListener("resize", (e) => {
 	if (e.target.innerWidth >= 1024) {
 		line();
-	}else {
+	} else {
 		lineBreak();
 	}
 });
 
-
 // when user open first time
-if(window.screen.width >= 1024){
+if (window.screen.width >= 1024) {
 	line();
-}else {
+} else {
 	lineBreak();
 }
+
+// ================ poster section
+
+// window screen width
+let width = window.screen.width;
+
+posterBtnRight.forEach((btn, i) => {
+	btn.addEventListener("click", () => {
+		posterContainer[i].scrollTo(width += posterItem.clientWidth, 0);
+	});	
+})
+
+posterBtnLeft.forEach((btn, i) => {
+	btn.addEventListener("click", () => {
+		posterContainer[i].scrollTo(0, 0);
+	})
+})
+

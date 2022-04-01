@@ -7,7 +7,7 @@ mixin angle-btn()
 		i.fas.fa-angle-right#js-btn-right
 	
 
-//- poster mixin
+//---------------------- poster mixin
 //- headline variable
 -let increment = -1;
 mixin poster(rowNum, names)
@@ -25,7 +25,7 @@ mixin poster(rowNum, names)
 		//- increase the number when calling next timex		
 		h3.poster__headline= headlines[increment += 1]
 		
-		.poster__container 
+		.poster__container#js-poster-carousel
 			-for(let i=1; i<=10; i++)
 				.poster__item(style="background: url(./Assets/poster/"+`${rowNum}-${i}`+".jpeg); background-size: cover; background-position: center center; background-repeat: no-repeat;")
 					.item__details
@@ -45,6 +45,7 @@ mixin poster(rowNum, names)
 						a(href="#" class="item__btn item__list-cta")
 							i.fas.fa-plus 
 							span add to watchlist 
+	.video 
 
 //- main section 
 main
