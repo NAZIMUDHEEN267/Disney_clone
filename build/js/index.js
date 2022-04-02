@@ -1,10 +1,13 @@
+
+import video from "./video.js";
+
 // dom variables
 const body = document.querySelector("body");
 const searchInput = document.querySelector("#js-search input");
 const carousel = document.getElementById("js-carousel");
 const btnLeft = document.getElementById("js-btn-left");
 const btnRight = document.getElementById("js-btn-right");
-const posterContainer = [...document.querySelectorAll("#js-poster-carousel")];
+const posterContainer = [...document.querySelectorAll(".poster__container")];
 const posterItem = posterContainer[0].firstElementChild;
 const posterBtnLeft = [...document.querySelectorAll(".poster #js-btn-left")];
 const posterBtnRight = [...document.querySelectorAll(".poster #js-btn-right")];
@@ -191,3 +194,5 @@ posterBtnLeft.forEach((btn, i) => {
 		posterContainer[i].scrollTo(0, 0);
 	});
 });
+
+video(posterContainer);

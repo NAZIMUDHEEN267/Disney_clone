@@ -63,6 +63,10 @@ li {
   display: flex;
 }
 
+.display {
+  display: none;
+}
+
 .header {
   font-size: 1.1rem;
 }
@@ -762,6 +766,15 @@ main .poster__container .poster__item .item__details .item__description h6 {
   main .poster__container .poster__item .item__details .item__description h6 {
     font-size: 0.5rem;
   }
+}
+main .video {
+  width: 100%;
+  padding: 1rem;
+  height: 30vh;
+}
+main .video embed {
+  height: 100%;
+  width: 100%;
 }
 
 .footer {

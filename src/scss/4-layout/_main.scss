@@ -15,7 +15,7 @@ main {
 	padding-top: help.convertor(70);
 	background: linear-gradient(to top, help.$bg-1 30%, help.$bg-2);
 
-	// carousel section
+	// ================ carousel section
 	.carousel {
 		position: relative;
 		margin: 1rem 0 2rem 0;
@@ -126,7 +126,7 @@ main {
 		}
 	}
 
-	// poster section
+	// ================ poster section
 	.poster {
 		position: relative;
 		width: 100%;
@@ -268,4 +268,17 @@ main {
 			}
 		}
 	}
+
+	.video {
+		width: 100%;
+		padding: 1rem;
+		height: 30vh;
+
+		embed {
+			height: 100%;
+			width: 100%;
+		}
+	}
 }
+
+

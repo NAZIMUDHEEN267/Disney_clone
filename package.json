@@ -7,11 +7,11 @@
 		"eslint": "npm init @eslint/config",
 		"errors": "npx eslint ./src/**/*.js",
 		"babel": "./node_modules/.bin/babel src/javascript --out-dir build/js",
-		"remove":"node src/rmDir.js",
+		"remove": "node src/rmDir.js",
 		"watch": "nodemon",
 		"grunt": "grunt watch"
 	},
-	"nodemonConfig":{
+	"nodemonConfig": {
 		"exec": "npm-run-all babel errors",
 		"watch": "src/*"
 	},

@@ -10,7 +10,9 @@ mixin angle-btn()
 //---------------------- poster mixin
 //- headline variable
 -let increment = -1;
-mixin poster(rowNum, names)
+mixin poster(...args)
+
+	-const [rowNum, names, index] = args;
 
 	//- randomly selecting a year
 	-const date = new Date().getFullYear()
@@ -25,12 +27,12 @@ mixin poster(rowNum, names)
 		//- increase the number when calling next timex		
 		h3.poster__headline= headlines[increment += 1]
 		
-		.poster__container#js-poster-carousel
+		div(class="poster__container" id=`js-id-${index - 1}`)
 			-for(let i=1; i<=10; i++)
 				.poster__item(style="background: url(./Assets/poster/"+`${rowNum}-${i}`+".jpeg); background-size: cover; background-position: center center; background-repeat: no-repeat;")
 					.item__details
 						.item__name 
-							p movie name
+							p#js-movie-name movie name
 						.item__goner 
 							span horror <br>
 							span= date
@@ -45,7 +47,7 @@ mixin poster(rowNum, names)
 						a(href="#" class="item__btn item__list-cta")
 							i.fas.fa-plus 
 							span add to watchlist 
-	.video 
+	.video.display
 
 //- main section 
 main
@@ -65,4 +67,4 @@ main
 
 	//- posters
 	-for(let i=1; i<=3; i++)
-		+poster(`r${i}`, itemNames[`names${i}`])
+		+poster(`r${i}`, itemNames[`names${i}`], i)
