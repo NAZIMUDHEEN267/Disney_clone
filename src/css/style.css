@@ -736,7 +736,7 @@ main .poster__container .poster__item .item__details {
   padding: 0 1rem 1rem;
   visibility: hidden;
   text-align: left;
-  background: linear-gradient(to top, #222d44 60%, transparent);
+  background: linear-gradient(to top, #222d44 70%, transparent);
   color: #e0ded7;
 }
 @media (max-width: 768px) {
@@ -753,6 +753,12 @@ main .poster__container .poster__item .item__details {
 main .poster__container .poster__item .item__details .item__name {
   font-size: 0.7rem;
   font-weight: 900;
+  text-transform: uppercase;
+}
+main .poster__container .poster__item .item__details .item__name p {
+  padding: 0 2px;
+  display: inline;
+  background: rgba(12, 17, 27, 0.5);
 }
 main .poster__container .poster__item .item__details .item__goner {
   font-size: 0.6rem;
@@ -768,13 +774,17 @@ main .poster__container .poster__item .item__details .item__description h6 {
   }
 }
 main .video {
-  width: 100%;
-  padding: 1rem;
-  height: 30vh;
+  padding: 0.5rem;
 }
 main .video embed {
   height: 100%;
   width: 100%;
+  height: 50vh;
+}
+@media (max-width: 424px) {
+  main .video embed {
+    height: 40vh;
+  }
 }
 
 .footer {

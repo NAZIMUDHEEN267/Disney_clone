@@ -1,4 +1,5 @@
 const video = (posterContainer) => {
+	const posters = document.querySelectorAll(".poster__item");
 	// endpoints of the youtube videos
 	const endPoints = {
 		"container 1": {
@@ -6,7 +7,7 @@ const video = (posterContainer) => {
 			aquaMan: "WDkg3h8PCVU",
 			avp2: "B2JPxMfoIes",
 			"pale rider": "UdpjGSLB2JQ",
-			cobain: "Rvk1XOJYYfw",
+			cobain: "DsB6SzPV9B0",
 			dark: "rrwycJ08PSA",
 			drive: "KBiOF3y1W0Y",
 			"fast and the furious 8": "JwMKRevYa_M",
@@ -23,7 +24,7 @@ const video = (posterContainer) => {
 			"lord of the rings": "v7v1hIkYH24",
 			maleficent: "n0OFH4xpPr4",
 			matrix: "9ix7TUGVYIo",
-			"money power respect": "o46A4wM-rG8",
+			"money power respect": "",
 		},
 		"container 3": {
 			pacino: "losLAzU9YCk",
@@ -33,7 +34,7 @@ const video = (posterContainer) => {
 			"sherlock holmes": "J7nJksXDBWc",
 			skyfall: "6kw1UVovByw",
 			"son of god": "-Hsl5UG9O_c",
-			"t2 trainspotting": "oQlaYKP996c",
+			"t2 trainspotting": "imrJ34EgHEU",
 			"the big bang theory": "WBb3fojgW0Q",
 			"the croods": "4fVCKy69zUY",
 		},
@@ -42,21 +43,42 @@ const video = (posterContainer) => {
 	// pushing names to poster container movie names
 	function getName(obj) {
 		for (let i = 0; i < posterContainer.length; i++) {
-			const movieNames = document.querySelectorAll(`#js-id-${[i]}`);
+			const id = "#js-id-" + i + " " + "#js-movie-name";
+			const movieNames = [...document.querySelectorAll(id)];
 			const childObject = Object.entries(obj);
-			childObject[i].forEach(i => {
-				for (const iterator in `${i}${.}container ${[i]}`) {
-					console.log(iterator);
+			childObject[i].forEach((item, index) => {
+				if (index == 1) {
+					for (const [num, key] of Object.entries(item).entries()) {
+						movieNames[num].innerHTML = key[0];
+						let receive = true;
+						posters.forEach((poster) => {
+							poster.addEventListener("click", () => {
+								const findElem =
+									poster.parentElement.parentElement
+										.nextElementSibling;
+										const video = document.querySelectorAll('.video');
+										video.forEach((videoContainer) => {
+											if(videoContainer === findElem){
+												videoContainer.classList.remove('display');
+											}else {
+												videoContainer.classList.add('display');
+											}
+								})
+										const { firstElementChild: {firstElementChild : {firstElementChild}} } = poster;
+								if(key[0].toUpperCase() === firstElementChild.innerText){
+									const url = `https://www.youtube.com/embed/${key[1]}?rel=0&showinfo=0`;
+									if(findElem.children){
+										findElem.children[0].setAttribute("src", url);
+									} 
+								}
+							});
+						});
+					}
 				}
-			})
+			});
 		}
 	}
 	getName(endPoints);
-
-	const video = Array.from(document.querySelectorAll(".video"));
-	video.forEach((item) => {});
-
-	const url = "https://www.youtube.com/watch?v=XtMThy8QKqU";
 };
 
 export default video;

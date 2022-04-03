@@ -229,8 +229,7 @@ main {
 					text-align: left;
 					background: linear-gradient(
 						to top,
-						darken(help.$bg-3, 10) 60%,
-						transparent
+						darken(help.$bg-3, 10) 70%, transparent
 					);
 					color: help.$text-color-2;
 
@@ -248,6 +247,13 @@ main {
 					.item__name {
 						font-size: 0.7rem;
 						font-weight: help.$f-w-3;
+						text-transform: uppercase;
+						
+						p{	
+							padding: 0 2px;
+							display: inline;
+							background: rgba(help.$bg-1, .5);
+						}
 					}
 
 					.item__goner {
@@ -270,13 +276,16 @@ main {
 	}
 
 	.video {
-		width: 100%;
-		padding: 1rem;
-		height: 30vh;
-
+		padding: .5rem;
+		
 		embed {
 			height: 100%;
 			width: 100%;
+			height: 50vh;
+
+			@include help.mobile {
+				height: 40vh;
+			}
 		}
 	}
 }
