@@ -22,7 +22,7 @@ mixin poster(...args)
 		+angle-btn()
 
 		//- headline array
-		-const headlines = ["latest & trending", "popular shows", "movies recommended for you"]
+		-const headlines = ["latest & trending", "popular shows", "movies recommended for you", "new in hotstar", "best of kids", "best of superheroes"]
 
 		//- increase the number when calling next timex		
 		h3.poster__headline= headlines[increment += 1]
@@ -59,13 +59,6 @@ main
 		//- carousel container for listing movies
 		.carousel__container.flex#js-carousel
 
-	//- poster names collection of each row
-	-const names1 = ["alien isolation", "aquaman", "avpr", "client eastwood", "cobain", "dark", "drive", "fast and the furious", "fight club", "for venetta"]
-	-const names2 = ["gangster squad", "hangover", "iron man", "jab tak hei jan", "james dean", "kaala", "lord of the rings", "maleficent", "matrix", "money power respect"]
-	-const names3 = ["pacino", "pk", "rambo", "return of the jedi", "sherlock homes", "skyfall", "son of the god", "t2 trainspotting", "the big bang", "the croods"]
-
-	-const itemNames = { names1, names2, names3 } 
-
 	//- posters
 	-for(let i=1; i<=3; i++)
-		+poster(`r${i}`, itemNames[`names${i}`], i)
+		+poster(`r${i}`, i)

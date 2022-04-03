@@ -1,5 +1,8 @@
 const video = posterContainer => {
+
+	// poster Dom variable 
 	const posters = document.querySelectorAll(".poster__item");
+
 	// endpoints of the youtube videos
 	const endPoints = {
 		"container 1": {
@@ -45,6 +48,7 @@ const video = posterContainer => {
 		for (let i = 0; i < posterContainer.length; i++) {
 			const id = "#js-id-" + i + " " + "#js-movie-name";
 			const movieNames = [...document.querySelectorAll(id)];
+			console.log(movieNames);
 			const childObject = Object.entries(obj);
 			childObject[i].forEach((item, index) => {
 				if (index == 1) {
