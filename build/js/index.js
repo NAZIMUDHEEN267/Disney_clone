@@ -87,7 +87,7 @@ class Slider {
 	// forward function for move slider forward
 	forward() {
 		if (move !== this.maxWidth) {
-			move += window.screen.availWidth;
+			move += window.screen.availWidth - 16;
 			carousel.scrollTo(move, 0);
 			btnLeft.style.color = "#fff";
 		}
@@ -96,7 +96,7 @@ class Slider {
 	// backward function for move slider backward
 	backward() {
 		if (move > 0) {
-			move -= window.screen.availWidth;
+			move -= window.screen.availWidth - 16;
 			carousel.scrollTo(move, 0);
 			btnRight.style.color = "#fff";
 		}
@@ -110,7 +110,7 @@ const slider = new Slider();
 setInterval(() => {
 	if (move === 0) {
 		btnLeft.style.color = "#54524c";
-	} else if (move === slider.maxWidth) {
+	} else if (move < slider.maxWidth && move > (slider.maxWidth - slider.minWidth)) {
 		btnRight.style.color = "#54524c";
 	}
 }, 100);
