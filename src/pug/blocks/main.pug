@@ -1,0 +1,64 @@
+
+//- angle buttons mixin
+mixin angle-btn() 
+	.angle__button.button__bg--left
+		i.fas.fa-angle-left#js-btn-left
+	.angle__button.button__bg--right 
+		i.fas.fa-angle-right#js-btn-right
+	
+
+//---------------------- poster mixin
+//- headline variable
+-let increment = -1;
+mixin poster(...args)
+
+	-const [rowNum, index] = args;
+
+	//- randomly selecting a year
+	-const date = new Date().getFullYear()
+
+	//- count for headline 
+	section(class="poster")
+		+angle-btn()
+
+		//- headline array
+		-const headlines = ["latest & trending", "popular shows", "movies recommended for you", "new in hotstar", "best of kids", "best of superheroes"]
+
+		//- increase the number when calling next timex		
+		h3.poster__headline= headlines[increment += 1]
+		
+		div(class="poster__container" id=`js-id-${index - 1}`)
+			-for(let i=1; i<=10; i++)
+				.poster__item(style="background: url(./Assets/poster/"+`${rowNum}-${i}`+".jpeg); background-size: cover; background-position: center center; background-repeat: no-repeat;")
+					.item__details
+						.item__name 
+							p#js-movie-name movie name
+						.item__goner 
+							span horror <br>
+							span= date
+						.item__description 
+							h6 sit Tempore quis eaque laudantium quisquam rerum enim molestias 
+
+						//- buttons
+						a(href="#" class="item__btn item__watch-cta")
+							i.fas.fa-play
+							span watch movie
+				
+						a(href="#" class="item__btn item__list-cta")
+							i.fas.fa-plus 
+							span add to watchlist 
+	.video.display
+		embed(type="video/mp4")
+
+//- main section 
+main
+	section.carousel
+		//- used for movement for slides
+		+angle-btn()
+
+		//- carousel container for listing movies
+		.carousel__container.flex#js-carousel
+
+	//- posters
+	-for(let i=1; i<=3; i++)
+		+poster(`r${i}`, i)

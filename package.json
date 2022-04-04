@@ -3,14 +3,15 @@
 	"version": "1.0.1",
 	"description": "",
 	"scripts": {
-		"pug": "pug -w ./src/pug -o ./build/html -P",
+		"pug": "pug -w ./src/pug -o ./build",
 		"eslint": "npm init @eslint/config",
-		"errors": "npx eslint ./src/rmDir.js",
-		"babel": "./node_modules/.bin/babel src/javascript --out-dir build/js",
+		"errors": "npx eslint ./src/**/*.js",
+		"babel": "./node_modules/.bin/babel src/javascript/*.js --out-dir build/js",
+		"remove": "node src/rmDir.js",
 		"watch": "nodemon",
 		"grunt": "grunt watch"
 	},
-	"nodemonConfig":{
+	"nodemonConfig": {
 		"exec": "npm-run-all babel errors",
 		"watch": "src/*"
 	},

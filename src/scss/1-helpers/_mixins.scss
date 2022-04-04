@@ -1,0 +1,116 @@
+// ===================== mixins
+
+// modules
+@use "../1-helpers/variables" as var;
+@use "../1-helpers/functions" as func;
+
+// for media query, different media size used
+@mixin desktop {
+	@media (max-width: var.$desktop) {
+		@content;
+	}
+}
+
+@mixin laptop {
+	@media (max-width: var.$laptop) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media (max-width: var.$tablet) {
+		@content;
+	}
+}
+
+@mixin mobile {
+	@media (max-width: var.$mobile) {
+		@content;
+	}
+}
+
+@mixin five-hundred {
+	@media (max-width: 500px) {
+		@content;
+	}
+}
+
+// for search block
+@mixin search {
+	input {
+		display: block;
+		width: 50%;
+		margin-left: auto;
+		padding-right: func.convertor(22);
+		background: transparent;
+		border: none;
+		border-bottom: 1px solid var.$text-color-1;
+		outline: none;
+		transition: all ease 0.3s 0.3ms;
+	}
+
+	::placeholder {
+		margin-bottom: 0.8rem;
+	}
+
+	.symbol {
+		position: absolute;
+		right: 0;
+		top: 0%;
+		bottom: 2;
+		color: var.$text-color-1;
+		cursor: pointer;
+		margin: 0 0.1rem 0.3rem 0;
+
+		i {
+			font-size: 1rem;
+		}
+	}
+}
+
+// for carousel buttons
+@mixin angle-btn($color) {
+	.angle__button {
+		position: absolute;
+		z-index: 5;
+		width: 3%;
+		height: 100%;
+		opacity: 0;
+
+		i {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			font-size: 2.5rem;
+			color: var.$white;
+			cursor: pointer;
+		}
+	}
+
+	// carousel button background
+	.button__bg--left {
+		left: 0;
+		background: linear-gradient(to right, $color, transparent);
+
+		i {
+			left: 0;
+		}
+	}
+
+	.button__bg--right {
+		right: 0;
+		background: linear-gradient(to left, $color, transparent);
+		i {
+			right: 0;
+		}
+	}
+}
+
+// grid value convertor for poster items
+@mixin grid-value($grid-max, $grid-min) {
+	grid-template-columns:
+		minmax($grid-min, $grid-max) repeat(8, minmax($grid-min, $grid-max))
+		minmax($grid-min, $grid-max);
+
+	grid-template-rows: $grid-max;
+}

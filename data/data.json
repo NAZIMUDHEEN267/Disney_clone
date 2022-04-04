@@ -1,36 +1,44 @@
 {
 	"container": [
 		{
-			"name": "aquaman",
-			"img": "aquaman.jpeg"
+			"name": "avatar",
+			"img": "avatar.jpeg"
+		},
+		{
+			"name": "blade_runner",
+			"img": "blade_runner.jpeg"
+		},
+		{
+			"name": "captain_america",
+			"img": "captain_america.jpeg"
 		},
 		{
 			"name": "godzilla_kong",
 			"img": "godzilla_kong.jpeg"
 		},
 		{
-			"name": "inception",
-			"img": "inception.jpeg"
+			"name": "guardians_of_the_galaxy",
+			"img": "guardians_of_the_galaxy.jpeg"
 		},
 		{
-			"name": "lord_of_the_rings",
-			"img": "lord_of_the_rings.jpeg"
+			"name": "interstellar",
+			"img": "interstellar.jpeg"
+		},
+		{
+			"name": "pacific_rim",
+			"img": "pacific_rim.jpeg"
 		},
 		{
 			"name": "predator",
 			"img": "predator.jpeg"
 		},
 		{
-			"name": "star_wars",
-			"img": "star_wars.jpeg"
-		},
-		{
-			"name": "suiside_squad",
-			"img": "suiside_squad.jpeg"
-		},
-		{
 			"name": "tangled",
 			"img": "tangled.jpeg"
+		},
+		{
+			"name": "thor",
+			"img": "thor.jpeg"
 		}
 	]
 }

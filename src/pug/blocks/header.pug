@@ -7,9 +7,8 @@
 
 //- mixins for generating links
 
-mixin list(links, className)
-	div(class=`${className}-list`)
-		.blank 
+mixin list(links, num)
+	div(class=`list-${num}`)
 		each link in links
 			li 
 				a(href="#")= link  
@@ -32,46 +31,57 @@ header.header
 					
 					li.list__item-1 
 						a(href="#") 
-							i.fa-solid.fa-chalkboard-user
-							span channels 
+							i.fa-solid.fa-chalkboard-user.symbol_color
+							span.text_color channels 
 					li.list__item-2 
 						a(href="#") 
-							i.fa-solid.fa-language
-							span language
+							i.fa-solid.fa-language.symbol_color
+							span.text_color language
 					li.list__item-3
 						a(href="#") 
-							i.fa-solid.fa-masks-theater
-							span genres 
+							i.fa-solid.fa-masks-theater.symbol_color
+							span.text_color genres 
 
 			//- links
-			ul.nav__links.flex#js-nav-links
-				li.nav__img
+			ul.nav__links.flex
+				.nav__img
 					a(href="#")
-						img(src="../Assets/disney.png", alt="disney.png")
-				li.nav__link_color
-					a(href="#") tv
-				li.nav__link_color
+						img(src="./Assets/disney.png", alt="disney.png")
+				
+				.nav__link_color
+					a(href="#") tv 
+					+list(tvLinks, 1)
+			
+				.nav__link_color
 					a(href="#") movies
-				li.nav__link_color
+					+list(movieLinks, 2)
+				
+				.nav__link_color
 					a(href="#") sports
-				li.nav__link_color
+					+list(sports, 3)
+				
+				.nav__link_color
 					a(href="#") disney<sup>+</sup>
-				li.kids
+				.kids
 					a(href="#") kids
 
-
+			.user__subscribe.btn-one
+				a(href="" class="nav__left-cta nav__left-cta_bg") SUBSCRIBE
+		
 		//- navigation links left 
 		.user.flex
-				.user__search
+				.user__search#js-search
 					input(type="text", name="search" placeholder="search")
-				.user__subscribe
+					.symbol 
+						i.fas.fa-search
+				.user__subscribe.btn-two
 					a(href="" class="nav__left-cta nav__left-cta_bg") SUBSCRIBE
 				.user__login
 					a(href="") LOGIN
-	
 
-+list(tvLinks, "tv")
-
-+list(movieLinks, "movies")
-
-+list(sports, "sports")
+	//- navigation links left 
+	.user.search-down
+		.user__search.flex
+			input(type="text", name="search" placeholder="search")
+			.symbol 
+				i.fas.fa-search
