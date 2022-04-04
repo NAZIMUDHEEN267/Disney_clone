@@ -21,4 +21,4 @@ You can also view my project in online, i put it on [netlify](https://www.netlif
 Desktop
 ```
 
-![desktop](./build/Assets/disney.png)
+![desktop](./build/Assets/desktop.png)
