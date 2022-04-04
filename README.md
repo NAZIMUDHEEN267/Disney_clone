@@ -15,7 +15,6 @@ You can also view my project in online, i put it on [netlify](https://www.netlif
 - ***grunt.js*** => task runner, at the same we can run multiple task using grunt
 - ***npm*** => node based package manager, npm is a server we can install packages or publish a new package 
 
->>>>>>> deploy
 
 ## view
 
